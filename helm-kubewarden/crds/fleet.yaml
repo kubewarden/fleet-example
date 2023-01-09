@@ -1,0 +1,6 @@
+defaultNamespace: cattle-fleet-system
+helm:
+  releaseName: kubewarden-crds
+  chart: kubewarden-crds
+  repo: https://charts.kubewarden.io
+  version: 1.2.3

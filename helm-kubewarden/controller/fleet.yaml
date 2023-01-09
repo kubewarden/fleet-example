@@ -1,0 +1,16 @@
+defaultNamespace: cattle-fleet-system
+helm:
+  releaseName: kubewarden-controller
+  chart: kubewarden-controller
+  repo: https://charts.kubewarden.io
+  version: 1.3.0
+
+# dependsOn allows you to configure dependencies to other bundles. The current bundle
+# will only be deployed, after all dependencies are deployed and in a Ready state.
+dependsOn:
+  # Format: <GITREPO-NAME>-<BUNDLE_PATH> with all path separators replaced by "-"
+  # Example: GitRepo name "one", Bundle path "/multi-cluster/hello-world" => "one-multi-cluster-hello-world"
+  # Example: GitRepo name "kubewarden-example", Bundle path "helm-kubewarden" =>
+  #          "kubewarden-example-helm-kubewarden-crds"
+  # Note: must be less than 64 chars
+  - name: kubewarden-example-helm-kubewarden-crds
