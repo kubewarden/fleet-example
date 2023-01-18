@@ -12,7 +12,7 @@ metadata:
   name: kubewarden-example
   namespace: fleet-local
 spec:
-  repo: https://github.com/viccuad/kubewarden-fleet
+  repo: https://github.com/kubewarden/kubewarden-fleet
   branch: main
   paths:
   - helm-kubewarden/
