@@ -8,4 +8,4 @@ helm:
     installCRDs: true
 
 labels:
-  app: cert-manager
+  app: jaeger
