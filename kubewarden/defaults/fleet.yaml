@@ -1,0 +1,22 @@
+defaultNamespace: cattle-fleet-system
+helm:
+  releaseName: kubewarden-defaults
+  chart: kubewarden-defaults
+  repo: https://charts.kubewarden.io
+  version: 1.9.0
+  values:
+    recommendedPolicies:
+      enabled: true
+      defaultPolicyMode: "monitor"
+labels:
+  app: kubewarden-defaults
+
+# Check https://fleet.rancher.io/ref-fleet-yaml
+dependsOn:
+  - selector:
+      matchLabels:
+        app: kubewarden-controller
+  - selector:
+      matchLabels:
+        app: rancher-monitoring
+        

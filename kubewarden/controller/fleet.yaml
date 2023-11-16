@@ -1,0 +1,31 @@
+defaultNamespace: cattle-fleet-system
+helm:
+  releaseName: kubewarden-controller
+  chart: kubewarden-controller
+  repo: https://charts.kubewarden.io
+  version: 2.0.3
+  values:
+    telemetry:
+      metrics:
+        enabled: True
+        port: 8080
+      tracing:
+        enabled: True
+        jaeger:
+          endpoint: "simple-collector.jaeger.svc.cluster.local:4317"
+          tls:
+            insecure: true
+labels:
+  app: kubewarden-controller
+
+# Check https://fleet.rancher.io/ref-fleet-yaml
+dependsOn:
+  - selector:
+      matchLabels:
+        app: kubewarden-crds
+  - selector:
+      matchLabels:
+        app: open-telemetry
+  - selector:
+      matchLabels:
+        app: jaeger

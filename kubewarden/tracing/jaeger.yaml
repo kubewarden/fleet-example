@@ -1,0 +1,13 @@
+#!!
+# DO NOT USE THIS IN PRODUCTION
+# Check https://www.jaegertracing.io/docs/1.50/operator/#production-strategy
+#!!
+
+apiVersion: jaegertracing.io/v1
+kind: Jaeger
+metadata:
+  name: simple
+  namespace: jaeger
+spec:
+  ingress:
+    enabled: true
