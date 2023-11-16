@@ -1,4 +1,4 @@
-defaultNamespace: cattle-fleet-system
+defaultNamespace: kubewarden
 helm:
   releaseName: kubewarden-defaults
   chart: kubewarden-defaults
