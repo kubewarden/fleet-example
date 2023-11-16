@@ -1,0 +1,9 @@
+defaultNamespace: jaeger
+helm:
+  releaseName: jaeger-operator
+  chart: jaeger-operator
+  version: 2.49.0
+  repo: https://jaegertracing.github.io/helm-charts
+  values:
+    rbac:
+      clusterRole: true
