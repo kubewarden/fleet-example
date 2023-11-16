@@ -1,5 +1,0 @@
----
-# enable recommended policies and set them as monitor
-recommendedPolicies:
-  enabled: True
-  defaultPolicyMode: "monitor"
