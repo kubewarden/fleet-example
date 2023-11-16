@@ -1,4 +1,5 @@
 defaultNamespace: jaeger
+
 helm:
   releaseName: jaeger-operator
   chart: jaeger-operator

@@ -1,4 +1,5 @@
 defaultNamespace: kubewarden
+
 helm:
   releaseName: kubewarden-controller
   chart: kubewarden-controller
@@ -15,6 +16,7 @@ helm:
           endpoint: "simple-collector.jaeger.svc.cluster.local:4317"
           tls:
             insecure: true
+
 labels:
   app: kubewarden-controller
 
@@ -29,3 +31,6 @@ dependsOn:
   - selector:
       matchLabels:
         app: jaeger
+  - selector:
+      matchLabels:
+        app: rancher-monitoring

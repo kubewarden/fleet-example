@@ -1,4 +1,5 @@
 defaultNamespace: kubewarden
+
 helm:
   releaseName: kubewarden-crds
   chart: kubewarden-crds

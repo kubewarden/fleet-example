@@ -1,4 +1,5 @@
 defaultNamespace: kubewarden
+
 helm:
   releaseName: kubewarden-defaults
   chart: kubewarden-defaults
@@ -8,6 +9,7 @@ helm:
     recommendedPolicies:
       enabled: true
       defaultPolicyMode: "monitor"
+
 labels:
   app: kubewarden-defaults
 
@@ -16,7 +18,3 @@ dependsOn:
   - selector:
       matchLabels:
         app: kubewarden-controller
-  - selector:
-      matchLabels:
-        app: rancher-monitoring
-        

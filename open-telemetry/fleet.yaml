@@ -1,4 +1,5 @@
 defaultNamespace: open-telemetry
+
 helm:
   releaseName: opentelemetry-operator
   chart: opentelemetry-operator
@@ -8,6 +9,7 @@ helm:
 labels:
   app: open-telemetry
 
+# Check https://fleet.rancher.io/ref-fleet-yaml
 dependsOn:
   - selector:
       matchLabels:
