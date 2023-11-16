@@ -7,3 +7,8 @@ helm:
 
 labels:
   app: open-telemetry
+
+dependsOn:
+  - selector:
+      matchLabels:
+        app: cert-manager
