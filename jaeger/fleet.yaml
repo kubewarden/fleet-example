@@ -11,3 +11,9 @@ helm:
 
 labels:
   app: jaeger
+
+# Check https://fleet.rancher.io/ref-fleet-yaml
+dependsOn:
+  - selector:
+      matchLabels:
+        app: cert-manager
