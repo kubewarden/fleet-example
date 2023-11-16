@@ -7,3 +7,6 @@ helm:
   values:
     rbac:
       clusterRole: true
+
+labels:
+  app: jaeger
