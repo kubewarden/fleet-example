@@ -1,0 +1,67 @@
+defaultNamespace: cattle-monitoring-system
+
+helm:
+  releaseName: rancher-monitoring
+  chart: rancher-monitoring
+  repo: https://charts.rancher.io
+  version: 102.0.2+up40.1.2
+  values:
+    # Make the UI work 
+    global:
+      cattle:
+        clusterId: '${ index .ClusterLabels "management.cattle.io/cluster-name" }'
+    prometheus:
+      prometheusSpec:
+        resources:
+          limits:
+            cpu: 1500m
+            memory: 3500Mi
+          requests:
+            cpu: 750m
+            memory: 1750Mi
+        evaluationInterval: 1m
+        scrapeInterval: 1m
+        retentionSize: 10GiB
+    # RKE2
+    # rke2Proxy:
+    #   enabled: true
+    # rke2ControllerManager:
+    #   enabled: true
+    # rke2IngressNginx:
+    #   enabled: true
+    # rke2Scheduler:
+    #   enabled: true
+    # rke2Etcd:
+    #   enabled: true
+    # k3s
+    k3sServer:
+      enabled: true
+    k3sControllerManager:
+      enabled: true
+    k3sScheduler:
+      enabled: true
+    k3sProxy:
+      enabled: true
+
+labels:
+  app: rancher-monitoring
+
+# Check https://fleet.rancher.io/ref-fleet-yaml
+dependsOn:
+  - selector:
+      matchLabels:
+        app: rancher-monitoring-crd
+
+# Patches needed for Fleet
+diff:
+  comparePatches:
+  - apiVersion: admissionregistration.k8s.io/v1
+    kind: MutatingWebhookConfiguration
+    name: rancher-monitoring-admission
+    operations:
+    - {"op": "remove", "path":"/webhooks/0"}
+  - apiVersion: admissionregistration.k8s.io/v1
+    kind: ValidatingWebhookConfiguration
+    name: rancher-monitoring-admission
+    operations:
+    - {"op": "remove", "path":"/webhooks/0"}

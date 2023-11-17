@@ -1,0 +1,16 @@
+defaultNamespace: open-telemetry
+
+helm:
+  releaseName: opentelemetry-operator
+  chart: opentelemetry-operator
+  version: 0.39.2
+  repo: https://open-telemetry.github.io/opentelemetry-helm-charts
+
+labels:
+  app: open-telemetry
+
+# Check https://fleet.rancher.io/ref-fleet-yaml
+dependsOn:
+  - selector:
+      matchLabels:
+        app: cert-manager

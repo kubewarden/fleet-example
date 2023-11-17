@@ -15,5 +15,9 @@ spec:
   repo: https://github.com/kubewarden/kubewarden-fleet
   branch: main
   paths:
-  - helm-kubewarden/
+  - cert-manager/
+  - jaeger/
+  - kubewarden/
+  - open-telemetry/
+  - rancher-monitoring/
 ```

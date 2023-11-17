@@ -1,0 +1,7 @@
+defaultNamespace: kubewarden
+
+# Check https://fleet.rancher.io/ref-fleet-yaml
+dependsOn:
+  - selector:
+      matchLabels:
+        app: rancher-monitoring
