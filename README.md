@@ -21,7 +21,7 @@ spec:
     - open-telemetry/
     - rancher-monitoring/
 
-  # remove any external change done by resources owned by Fleet:
+  # remove any external change done to resources owned by Fleet:
   correctDrift:
     enabled: true
     force: true
