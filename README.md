@@ -15,9 +15,14 @@ spec:
   repo: https://github.com/kubewarden/kubewarden-fleet
   branch: main
   paths:
-  - cert-manager/
-  - jaeger/
-  - kubewarden/
-  - open-telemetry/
-  - rancher-monitoring/
+    - cert-manager/
+    - jaeger/
+    - kubewarden/
+    - open-telemetry/
+    - rancher-monitoring/
+
+  # remove any external change done by resources owned by Fleet:
+  correctDrift:
+    enabled: true
+    force: true
 ```
