@@ -1,6 +1,25 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "extends": [
-    "config:base"
+    "config:base",
+    "schedule:earlyMondays",
+    "helpers:pinGitHubActionDigests"
+  ],
+  "labels": [
+    "dependencies"
+  ],
+  "packageRules": [
+    {
+      "matchPackagePatterns": [
+        ".*opentelemetry-operator"
+      ],
+      "dependencyDashboardApproval": true
+    },
+    {
+      "matchPackagePatterns": [
+        ".*jaeger-operator"
+      ],
+      "dependencyDashboardApproval": true
+    }
   ]
 }
