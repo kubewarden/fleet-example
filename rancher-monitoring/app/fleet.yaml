@@ -1,5 +1,13 @@
 defaultNamespace: cattle-monitoring-system
 
+namespaceLabels:
+  pod-security.kubernetes.io/enforce: restricted
+  pod-security.kubernetes.io/enforce-version: latest
+  pod-security.kubernetes.io/audit: restricted
+  pod-security.kubernetes.io/audit-version: latest
+  pod-security.kubernetes.io/warn: restricted
+  pod-security.kubernetes.io/warn-version: latest
+
 helm:
   releaseName: rancher-monitoring
   chart: rancher-monitoring
