@@ -30,26 +30,6 @@ helm:
         evaluationInterval: 1m
         scrapeInterval: 1m
         retentionSize: 10GiB
-    # RKE2
-    # rke2Proxy:
-    #   enabled: true
-    # rke2ControllerManager:
-    #   enabled: true
-    # rke2IngressNginx:
-    #   enabled: true
-    # rke2Scheduler:
-    #   enabled: true
-    # rke2Etcd:
-    #   enabled: true
-    # k3s
-    k3sServer:
-      enabled: true
-    k3sControllerManager:
-      enabled: true
-    k3sScheduler:
-      enabled: true
-    k3sProxy:
-      enabled: true
 
 labels:
   app: rancher-monitoring
@@ -59,6 +39,39 @@ dependsOn:
   - selector:
       matchLabels:
         app: rancher-monitoring-crd
+
+# Correctly deploy extractors for k3s and rke2 based on labels
+targetCustomizations:
+- name: rke2
+  helm:
+    values:
+      rke2Proxy:
+        enabled: true
+      rke2ControllerManager:
+        enabled: true
+      rke2IngressNginx:
+        enabled: true
+      rke2Scheduler:
+        enabled: true
+      rke2Etcd:
+        enabled: true
+  clusterSelector:
+    matchLabels:
+      provider.cattle.io: rke2
+- name: k3s
+  helm:
+    values:
+      k3sServer:
+        enabled: true
+      k3sControllerManager:
+        enabled: true
+      k3sScheduler:
+        enabled: true
+      k3sProxy:
+        enabled: true
+  clusterSelector:
+    matchLabels:
+      provider.cattle.io: k3s
 
 # Patches needed for Fleet
 diff:
