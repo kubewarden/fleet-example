@@ -18,6 +18,7 @@ helm:
     global:
       cattle:
         clusterId: '${ index .ClusterLabels "management.cattle.io/cluster-name" }'
+        clusterName: '${ index .ClusterLabels "management.cattle.io/cluster-display-name" }'
     prometheus:
       prometheusSpec:
         resources:
