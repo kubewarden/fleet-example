@@ -1,3 +1,5 @@
+[![Stable](https://img.shields.io/badge/status-stable-brightgreen?style=for-the-badge)](https://github.com/kubewarden/community/blob/main/REPOSITORIES.md#stable)
+
 # Kubewarden Fleet example
 
 This example will deploy Kubewarden packaged as Helm charts from the Kubewarden
