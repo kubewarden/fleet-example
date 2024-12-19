@@ -11,7 +11,7 @@ namespaceLabels:
 helm:
   releaseName: jaeger-operator
   chart: jaeger-operator
-  version: 2.50.1
+  version: 2.57.0
   repo: https://jaegertracing.github.io/helm-charts
   values:
     rbac:
