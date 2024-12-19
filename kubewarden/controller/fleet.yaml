@@ -18,15 +18,17 @@ helm:
       enable: true
       policyReporter: true
     telemetry:
-      metrics:
-        enabled: true
-        port: 8080
-      tracing:
-        enabled: true
-        jaeger:
-          endpoint: "simple-collector.jaeger.svc.cluster.local:4317"
-          tls:
-            insecure: true
+      mode: sidecar
+      metrics: true
+      tracing: true
+      sidecar:
+        metrics:
+          port: 8080
+        tracing:
+          jaeger:
+            endpoint: "simple-collector.jaeger.svc.cluster.local:4317"
+            tls:
+              insecure: true
 
 labels:
   app: kubewarden-controller
