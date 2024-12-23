@@ -12,7 +12,7 @@ helm:
   releaseName: kubewarden-controller
   chart: kubewarden-controller
   repo: https://charts.kubewarden.io
-  version: 4.0.0
+  version: 4.0.1
   values:
     auditScanner:
       enable: true
