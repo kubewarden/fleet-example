@@ -30,6 +30,15 @@ helm:
             tls:
               insecure: true
 
+diff:
+  comparePatches:    
+  - apiVersion: opentelemetry.io/v1beta1
+    kind: OpenTelemetryCollector
+    name: kubewarden
+    namespace: kubewarden
+    operations:
+    - {"op": "remove", "path": "/spec/config/service/pipelines/metrics/processors"}
+
 labels:
   app: kubewarden-controller
 
