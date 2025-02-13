@@ -13,6 +13,10 @@ helm:
   chart: opentelemetry-operator
   version: 0.75.1
   repo: https://open-telemetry.github.io/opentelemetry-helm-charts
+  values:
+    manager:
+      collectorImage:
+        repository: "otel/opentelemetry-collector-contrib"
 
 labels:
   app: open-telemetry
