@@ -12,7 +12,7 @@ helm:
   releaseName: rancher-monitoring
   chart: rancher-monitoring
   repo: https://charts.rancher.io
-  version: 106.0.0+up66.7.1-rancher.2
+  version: 106.0.1+up66.7.1-rancher.10
   values:
     # Make the UI work 
     global:
