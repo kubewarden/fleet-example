@@ -4,7 +4,7 @@ helm:
   releaseName: kubewarden-defaults
   chart: kubewarden-defaults
   repo: https://charts.kubewarden.io
-  version: 3.7.2
+  version: 3.8.0
   values:
     recommendedPolicies:
       enabled: true
