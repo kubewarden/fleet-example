@@ -4,7 +4,7 @@ helm:
   releaseName: rancher-monitoring-crd
   chart: rancher-monitoring-crd
   repo: https://charts.rancher.io
-  version: 108.0.0+up77.9.1-rancher.6
+  version: 108.0.1+up77.9.1-rancher.10
 
 labels:
   app: rancher-monitoring-crd
