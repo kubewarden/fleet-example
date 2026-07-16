@@ -1,6 +1,10 @@
 # https://fleet.rancher.io/ref-fleet-yaml
 defaultNamespace: cattle-kubewarden-system
 
+# Keep deployed resources when this bundle is removed, to migrate them
+# to the new consolidated admission-controller chart.
+keepResources: true
+
 helm:
   version: "*-0" # 1.4.4
   releaseName: rancher-kubewarden-crds

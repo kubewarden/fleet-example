@@ -1,6 +1,10 @@
 # https://fleet.rancher.io/ref-fleet-yaml
 defaultNamespace: cattle-kubewarden-system
 
+# Keep deployed resources when this bundle is removed, to migrate them
+# to the new consolidated admission-controller chart.
+keepResources: true
+
 helm:
   version: "*-0" # 2.0.5
   releaseName: rancher-kubewarden-controller
@@ -10,7 +14,12 @@ helm:
     # image:
     #   tag: latest
     auditScanner:
-      policyReporter: true
+      # Disable the policy-reporter subchart before the migration to the
+      # admission-controller chart: its Deployments embed the Helm release
+      # name in the immutable spec.selector, so they cannot be adopted by
+      # the new release (takeOwnership). Removing them here lets the new
+      # chart recreate them fresh.
+      policyReporter: false
       cronJob:
         schedule: "*/1 * * * *" # every minute
     telemetry:
