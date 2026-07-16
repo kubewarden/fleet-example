@@ -14,11 +14,11 @@ metadata:
   name: kubewarden-example
   namespace: fleet-local
 spec:
-  repo: https://github.com/kubewarden/kubewarden-fleet
+  repo: https://github.com/kubewarden/fleet-example
   branch: main
   paths:
     - cert-manager/
-    - jaeger/
+    - jaeger-operator/
     - kubewarden/
     - open-telemetry/
     - rancher-monitoring/

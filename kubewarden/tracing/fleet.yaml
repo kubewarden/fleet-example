@@ -4,4 +4,4 @@ defaultNamespace: kubewarden
 dependsOn:
   - selector:
       matchLabels:
-        app: jaeger
+        name: jaeger-operator
