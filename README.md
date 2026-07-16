@@ -2,12 +2,15 @@
 
 # Kubewarden Fleet example
 
-This example will deploy Kubewarden packaged as Helm charts from the Kubewarden
-Helm repo, https://charts.kubewarden.io, into the `cattle-fleet-system`
-namespace. The defined Fleet modules have the chart dependencies codified via
-`dependsOn`.
+This example will deploy Kubewarden packaged as the `admission-controller`
+Helm chart from the Kubewarden Helm repo, https://charts.kubewarden.io, into
+the `cattle-kubewarden-system` namespace, along with its optional
+dependencies (cert-manager, Jaeger, OpenTelemetry, Rancher Monitoring).
+These chart optional dependencies are codified via `dependsOn` in the Fleet
+bundles.
 
 ```yaml
+cat > example.yaml << "EOF"
 kind: GitRepo
 apiVersion: fleet.cattle.io/v1alpha1
 metadata:
@@ -27,4 +30,7 @@ spec:
   correctDrift:
     enabled: true
     force: true
+EOF
+
+kubectl apply -f example.yaml
 ```
