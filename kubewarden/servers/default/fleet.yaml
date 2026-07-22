@@ -2,12 +2,10 @@
 defaultNamespace: cattle-kubewarden-system
 
 helm:
-  version: '*-0'
+  version: "*-0"
   releaseName: rancher-kubewarden-defaults
   chart: kubewarden-defaults
   repo: https://charts.kubewarden.io
-  # valuesFiles:
-  #   - values.yaml
   values:
     recommendedPolicies:
       enabled: true

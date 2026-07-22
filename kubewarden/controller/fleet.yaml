@@ -2,12 +2,10 @@
 defaultNamespace: cattle-kubewarden-system
 
 helm:
-  version: '*-0'  # 2.0.5
+  version: "*-0" # 2.0.5
   releaseName: rancher-kubewarden-controller
   chart: kubewarden-controller
   repo: https://charts.kubewarden.io
-  # valuesFiles:
-  #   - values.yaml
   values:
     # image:
     #   tag: latest
@@ -20,8 +18,8 @@ helm:
       tracing: true
       sidecar:
         # metrics:
-          # enabled: true
-          # port: 8080
+        # enabled: true
+        # port: 8080
         tracing:
           jaeger:
             endpoint: "jaeger-operator-jaeger-collector.jaeger.svc.cluster.local:4317"
@@ -35,20 +33,20 @@ diff:
       name: kubewarden
       namespace: cattle-kubewarden-system
       operations:
-        - {"op": "remove", "path": "/spec"}
+        - { "op": "remove", "path": "/spec" }
 
     - apiVersion: admissionregistration.k8s.io/v1
       kind: MutatingWebhookConfiguration
       name: kubewarden-controller-mutating-webhook-configuration
       jsonPointers:
       operations:
-        - {"op": "remove", "path":"/webhooks"}
+        - { "op": "remove", "path": "/webhooks" }
 
     - apiVersion: admissionregistration.k8s.io/v1
       kind: ValidatingWebhookConfiguration
       name: kubewarden-controller-validating-webhook-configuration
       operations:
-        - {"op": "remove", "path":"/webhooks"}
+        - { "op": "remove", "path": "/webhooks" }
 
 labels:
   app: rancher-kubewarden-controller
