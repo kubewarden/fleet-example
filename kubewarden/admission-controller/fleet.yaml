@@ -6,9 +6,6 @@ helm:
   releaseName: rancher-admission-controller
   chart: admission-controller
   repo: https://charts.kubewarden.io
-  # Adopt the resources left behind (keepResources: true) by the old
-  # kubewarden-crds, kubewarden-controller and kubewarden-defaults charts.
-  takeOwnership: true
   values:
     # image:
     #   tag: latest
