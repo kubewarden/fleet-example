@@ -1,0 +1,19 @@
+kind: GitRepo
+apiVersion: fleet.cattle.io/v1alpha1
+metadata:
+  name: kubewarden-example
+  namespace: fleet-local
+spec:
+  repo: https://github.com/kubewarden/fleet-example
+  branch: main
+  paths:
+    - cert-manager/
+    - jaeger-operator/
+    - kubewarden/
+    - open-telemetry/
+    - rancher-monitoring/
+
+  # remove any external change done to resources owned by Fleet:
+  correctDrift:
+    enabled: true
+    force: true

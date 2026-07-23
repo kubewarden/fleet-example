@@ -1,17 +1,8 @@
-defaultNamespace: open-telemetry
-
-namespaceLabels:
-  pod-security.kubernetes.io/enforce: baseline
-  pod-security.kubernetes.io/enforce-version: latest
-  pod-security.kubernetes.io/audit: baseline
-  pod-security.kubernetes.io/audit-version: latest
-  pod-security.kubernetes.io/warn: baseline
-  pod-security.kubernetes.io/warn-version: latest
-
+defaultNamespace: opentelemetry
 helm:
-  releaseName: opentelemetry-operator
+  releaseName: opentelemetry
   chart: opentelemetry-operator
-  version: 0.75.1
+  version: "*"   # 0.114.1
   repo: https://open-telemetry.github.io/opentelemetry-helm-charts
   values:
     manager:
@@ -19,10 +10,15 @@ helm:
         repository: "otel/opentelemetry-collector-contrib"
 
 labels:
-  app: open-telemetry
+  name: opentelemetry
 
 # Check https://fleet.rancher.io/ref-fleet-yaml
 dependsOn:
   - selector:
       matchLabels:
         app: cert-manager
+
+# To disable OTEL Collector deployment
+# targetCustomizations:
+# - clusterSelector: {}
+#   doNotDeploy: true
