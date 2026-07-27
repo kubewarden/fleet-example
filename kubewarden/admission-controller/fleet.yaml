@@ -1,6 +1,14 @@
 # https://fleet.rancher.io/ref-fleet-yaml
 defaultNamespace: cattle-kubewarden-system
 
+namespaceLabels:
+  pod-security.kubernetes.io/enforce: baseline
+  pod-security.kubernetes.io/enforce-version: latest
+  pod-security.kubernetes.io/audit: baseline
+  pod-security.kubernetes.io/audit-version: latest
+  pod-security.kubernetes.io/warn: baseline
+  pod-security.kubernetes.io/wrn-version: latest
+
 helm:
   version: "*-0" # 6.0.0-rc.2
   releaseName: rancher-admission-controller
@@ -44,7 +52,6 @@ diff:
     - apiVersion: admissionregistration.k8s.io/v1
       kind: MutatingWebhookConfiguration
       name: kubewarden-controller-mutating-webhook-configuration
-      jsonPointers:
       operations:
         - { "op": "remove", "path": "/webhooks" }
 

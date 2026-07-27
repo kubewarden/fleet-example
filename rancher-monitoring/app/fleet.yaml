@@ -80,10 +80,14 @@ diff:
   - apiVersion: admissionregistration.k8s.io/v1
     kind: MutatingWebhookConfiguration
     name: rancher-monitoring-admission
-    operations:
-    - {"op": "remove", "path":"/webhooks/0"}
+    jsonPointers:
+      - /webhooks/0/clientConfig/caBundle
+      - /webhooks/0/rules
   - apiVersion: admissionregistration.k8s.io/v1
     kind: ValidatingWebhookConfiguration
     name: rancher-monitoring-admission
-    operations:
-    - {"op": "remove", "path":"/webhooks/0"}
+    jsonPointers:
+      - /webhooks/0/clientConfig/caBundle
+      - /webhooks/0/rules
+      - /webhooks/1/clientConfig/caBundle
+      - /webhooks/1/rules
