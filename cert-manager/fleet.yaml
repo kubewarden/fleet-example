@@ -18,3 +18,17 @@ helm:
 
 labels:
   app: cert-manager
+
+# Patches needed for Fleet
+diff:
+  comparePatches:
+  - apiVersion: admissionregistration.k8s.io/v1
+    kind: MutatingWebhookConfiguration
+    name: cert-manager-webhook
+    operations:
+    - {"op": "remove", "path":"/webhooks/0"}
+  - apiVersion: admissionregistration.k8s.io/v1
+    kind: ValidatingWebhookConfiguration
+    name: cert-manager-webhook
+    operations:
+    - {"op": "remove", "path":"/webhooks/0"}
