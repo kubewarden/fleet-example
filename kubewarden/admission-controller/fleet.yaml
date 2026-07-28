@@ -1,6 +1,8 @@
 # https://fleet.rancher.io/ref-fleet-yaml
 defaultNamespace: cattle-kubewarden-system
 
+# Kubewarden supports PSA `restricted`.
+# Enable `baseline` for CIS support under RKE.
 namespaceLabels:
   pod-security.kubernetes.io/enforce: baseline
   pod-security.kubernetes.io/enforce-version: latest
