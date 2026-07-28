@@ -10,7 +10,7 @@ spec:
   module: ghcr.io/kubewarden/policies/pod-privileged:v0.2.7
   rules:
     - apiGroups:
-        - ''
+        - ""
       apiVersions:
         - v1
       resources:
@@ -18,7 +18,7 @@ spec:
       operations:
         - CREATE
     - apiGroups:
-        - ''
+        - ""
       apiVersions:
         - v1
       resources:
@@ -72,6 +72,7 @@ spec:
           - kube-public
           - kube-system
           - rancher-operator-system
+          - longhorn-system
           - security-scan
           - tigera-operator
   mode: protect
